@@ -1,0 +1,16 @@
+.apexcharts-legend.apx-legend-position-bottom.apexcharts-align-center {
+    margin-right: 1rem !important;
+    margin-top: 1rem !important;
+}
+
+
+
+.apexcharts-legend-text {
+    color: black !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+}
+
+.dark .apexcharts-legend-text{
+     color:  white  !important;
+}

@@ -1,0 +1,149 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@custom-variant dark (&:is(.dark *));
+
+/* Custom Ping Animation */
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-ping-custom {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Theme Configuration */
+@theme {
+  /* Color Variables */
+  --color-primary: var(--color-primary);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-dark: var(--color-primary-dark);
+--color-button-text:var(--color-button-text);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-light: var(--color-secondary-light);
+  --color-sidebar-branch: var(--color-sidebar-branch);
+  --color-text: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+
+  --color-border: var(--color-border);
+  --color-border-light: var(--color-border-light);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+
+  --color-table-row: var(--color-table-row);
+  --color-table-row-alt: var(--color-table-row-alt);
+  --color-table-row-hover: var(--color-table-row-hover);
+  --color-table-border: var(--color-table-border);
+
+  --color-table-text: var(--color-table-text);
+  --color-table-header-text: var(--color-table-header-text);
+  --color-table-text-muted: var(--color-table-text-muted);
+   --color-table-divider: var(--color-table-divider);
+  --color-table-header-bg:var(--color-table-header-bg)
+
+  /* Typography */
+  --font-primary: "Poppins", sans-serif;
+  --shadow-default: var(--shadow-default);
+}
+
+
+/* Base Styles */
+body {
+  @apply bg-background text-primary;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Import Poppins from Google Fonts */
+
+/* Ensure all text elements use Poppins by default (inline styles can override) */
+h1, h2, h3, h4, h5, h6,
+p, span, div, a, button, input, textarea, select, label {
+  font-family: 'Poppins', sans-serif;
+}
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+/* Form Controls */
+.css-13cymwt-control {
+  @apply border-border rounded-lg shadow-sm transition-colors duration-200;
+  min-height: 42px;
+}
+
+/* Utility Classes */
+@layer components {
+
+  /* Gradient Backgrounds */
+  .primary-gradient {
+    @apply bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white;
+  }
+
+  .secondary-gradient {
+    @apply bg-gradient-to-r from-white to-yellow-50 text-gray-800;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary/10 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-surface rounded-xl shadow-sm border border-border-light p-6;
+  }
+
+  /* Inputs */
+  .input-primary {
+    @apply w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .badge-secondary {
+    @apply bg-gray-100 text-gray-800;
+  }
+}
+
+/* Notification Dropdown */
+.notification-dropdown {
+  position: fixed !important;
+  top: var(--header-height, 4rem) !important;
+  right: 5rem !important;
+  z-index: 1000 !important;
+}
+
+/* Dark Mode Overrides */
+.dark {
+  .card {
+    @apply bg-surface border-border;
+  }
+
+  .btn-outline {
+    @apply border-yellow-400 text-yellow-400 hover:bg-yellow-400/10;
+  }
+
+  .badge-primary {
+    @apply bg-yellow-900/30 text-yellow-400;
+  }
+
+  .badge-secondary {
+    @apply bg-gray-800 text-gray-200;
+  }
+}
+
